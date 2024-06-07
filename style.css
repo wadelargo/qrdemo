@@ -1,0 +1,10 @@
+#wrapper {
+    width: 300px;
+    margin-inline: auto;
+}
+
+#reader {
+    width: 300px;
+    border: 1px solid #888;
+     min-height: 300px;
+}

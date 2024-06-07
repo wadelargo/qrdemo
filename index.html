@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode Scan Demo</title>
+    <link rel="stylesheet" href="style.css"> 
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>QRCode Scanner</h1> 
+        <div id="reader"></div>
+        <hr>
+        <div id="result">
+
+        </div>
+    </div>
+
+    <script>
+        const config = {
+            fps: 30,
+            qrbox: 200
+        }
+        const scanner = new HtmlSQrcodeScanner("reader", config)
+        
+
+
+        const success = (data) => {
+            const el = document.getElementById("result");
+
+            el.innerHTML = `
+                <h3>Scanned Data</h3>
+                <h4>${data}<h4
+            `
+            
+            setInterval(()=>{
+                el.innerHTML = ''
+            },5000)
+        }
+
+        const error = (err) => {
+            alert(err)
+        }
+
+        scanner.render(success)
+    </script>
+</body>
+</html>
